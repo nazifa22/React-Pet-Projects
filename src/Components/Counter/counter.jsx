@@ -60,16 +60,17 @@ class Counter extends Component {
         return (
             <div className="container">
                 {this.state.counters.map(counterItem => (
-                    <div className="row" key={counterItem.id} value={counterItem.value} selected={true}>
+                    <div className="row" key={ counterItem.id } value={ counterItem.value } selected={true}>
                         <div className="col-12 mt-5">
-                            <img src={counterItem.imageURL} alt="Logo" className="mr-3"/> 
+                            <img src={ counterItem.imageURL } alt="Logo" className="mr-3"/> 
+                            {/* { counterItem.value === 0 && 'This item has no products available!'} */}
                             <span className="badge badge-success">
-                                {counterItem.value === 0 ? 'Zero' : counterItem.value}
+                                { counterItem.value === 0 ? 'Zero' : counterItem.value }
                             </span> &nbsp;
-                            <button onClick={() => this.handleIncrement(counterItem)} className="btn btn-warning">Increment</button> &nbsp;
-                            <button onClick={() => this.handleDecrement(counterItem)} className="btn btn-warning">Decrement</button> &nbsp;
-                            <button onClick={() => this.deleteHandler(counterItem)} className="btn btn-danger">Delete</button> &nbsp;
-                            <button className="btn btn-primary" onClick={() => this.resetHandler(counterItem)}>Reset</button>
+                            <button onClick={ () => this.handleIncrement(counterItem) } className="btn btn-warning">Increment</button> &nbsp;
+                            <button onClick={ () => this.handleDecrement(counterItem) } className="btn btn-warning">Decrement</button> &nbsp;
+                            <button onClick={ () => this.deleteHandler(counterItem) } className="btn btn-danger">Delete</button> &nbsp;
+                            <button className="btn btn-primary" onClick={ () => this.resetHandler(counterItem) }>Reset</button>
                         </div>
                     </div>
                 ))}
